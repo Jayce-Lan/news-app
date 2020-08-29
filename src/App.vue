@@ -1,28 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header />
+    <div class="container">
+      <!-- 通过不同的访问路径渲染不同的组件 -->
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Home from '@/views/Home';
+import Header from '@/components/Header';
+
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
+    //注册组件
+    // Home,  //由于Home组件不一定能够被渲染，所以使用vue-router完成各组件的渲染
+    Header
+  },
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+  .container {
+    margin: 30px auto;
+  }
 </style>
